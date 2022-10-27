@@ -3,6 +3,14 @@ const fs = require("fs");
 
 let registrationContent = "";
 let projectContent = "";
+let homeContent = "";
+
+fs.readFile("home.html", (err, home) => {
+  if (err) {
+    throw err;
+  }
+  homeContent = home;
+});
 
 fs.readFile("registration.html", (err, registration) => {
   if (err) {
@@ -31,6 +39,10 @@ http
         response.write(registrationContent);
         response.end();
         break;
+      default:
+            response.write(homeContent);
+            response.end();
+            break;
     }
   })
   .listen(5000);
