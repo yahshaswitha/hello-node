@@ -1,5 +1,36 @@
-const print=()=>{
-    console.log("Hello Node.js!");
-};
+const http = require("http");
+const fs = require("fs");
 
-print()
+let registrationContent = "";
+let projectContent = "";
+
+fs.readFile("registration.html", (err, registration) => {
+  if (err) {
+    throw err;
+  }
+  registrationContent = registration;
+});
+
+fs.readFile("project.html", (err, project) => {
+  if (err) {
+    throw err;
+  }
+  projectContent = project;
+});
+
+http
+  .createServer((request, response) => {
+    let url = request.url;
+    response.writeHeader(200, { "Content-Type": "text/html" });
+    switch (url) {
+      case "/project":
+        response.write(projectContent);
+        response.end();
+        break;
+      case "/registration":
+        response.write(registrationContent);
+        response.end();
+        break;
+    }
+  })
+  .listen(5000);
