@@ -1,0 +1,24 @@
+{
+  "name": "hello-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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:x-oauth-basic@github.com/yahshaswitha/hello-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yahshaswitha/hello-node/issues"
+  },
+  "homepage": "https://github.com/yahshaswitha/hello-node#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "minimist": "^1.2.7"
+  }
+}
